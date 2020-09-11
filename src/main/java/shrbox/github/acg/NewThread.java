@@ -27,7 +27,7 @@ public class NewThread extends Thread {
         }
         Gson gson = new Gson();
         Json json1 = gson.fromJson(json, Json.class);
-        if (!json1.code.equals(200)) {
+        if (json1.code!=200) {
             e.getGroup().sendMessage(MessageUtils.newChain(new At(e.getSender())).plus("接口错误（1）"));
             return;
         }
