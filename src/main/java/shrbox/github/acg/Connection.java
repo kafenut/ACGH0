@@ -8,9 +8,10 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class Connection {
-    public static String getURL() {
+    public static String getURL(String r18) {
         try {
-            URL url = new URL("https://api.ixiaowai.cn/api/api.php?return=json");
+            String apikey = "616114365f5883bbea3bc0"
+            URL url = new URL("https://api.lolicon.app/setu/?apikey="+apikey+"&r18="+r18);
             URLConnection urlConnection = url.openConnection();
             HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
             if (httpURLConnection.getResponseCode() != HttpURLConnection.HTTP_OK) {
