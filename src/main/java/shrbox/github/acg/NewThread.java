@@ -33,16 +33,16 @@ public class NewThread extends Thread {
         }
         Image image = null;
         try {
-            image = e.getGroup().uploadImage(new URL(json1.data[0].url));
+            image = e.getGroup().uploadImage(new URL(json1.data.get(0).url));
         } catch (Exception e) {
             e.printStackTrace();
         }
         e.getGroup().sendMessage(MessageUtils.newChain(new At(e.getSender()))
-                .plus("\nSize: " + json1.data[0].width + "*" + json1.data[0].height)
-                .plus("\n画师: "+ json1.data[0].author)
-                .plus("\npid: "+ String.valueOf(json1.data[0].pid))
+                .plus("\nSize: " + json1.data.get(0).width + "*" + json1.data.get(0).height)
+                .plus("\n画师: "+ json1.data.get(0).author)
+                .plus("\npid: "+ String.valueOf(json1.data.get(0).pid))
                 .plus(image)
-                .plus("ImageURL: " + json1.data[0].url)
+                .plus("ImageURL: " + json1.data.get(0).url)
                 .plus("\n今日剩余次数: "+ String.valueOf(json1.quota))
         );
     }
