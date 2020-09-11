@@ -10,7 +10,7 @@ import java.net.URLConnection;
 public class Connection {
     public static String getURL(String r18) {
         try {
-            String apikey = "616114365f5883bbea3bc0"
+            String apikey = "616114365f5883bbea3bc0";
             URL url = new URL("https://api.lolicon.app/setu/?apikey="+apikey+"&r18="+r18);
             URLConnection urlConnection = url.openConnection();
             HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
