@@ -1,5 +1,5 @@
 package shrbox.github.acg;
-import java.util.List
+import java.util.List;
 
 public class Json {
     int code;
