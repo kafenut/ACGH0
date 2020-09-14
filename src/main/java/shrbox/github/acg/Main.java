@@ -22,7 +22,16 @@ class Main extends PluginBase {
         System.setProperty("http.agent", "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; QQBrowser/7.0.3698.400)");
         getEventListener().subscribeAlways(GroupMessageEvent.class, (GroupMessageEvent e) -> {
             String inputString = e.getMessage().contentToString().toLowerCase();
-            if (inputString.equals("色图") || inputString.equals("涩图") || inputString.equals("不够色") || inputString.equals("不够涩")) {
+            if ( inputString.equals("涩图") || inputString.equals("色图") ) {
+                if (count > 15) {
+                    e.getGroup().sendMessage(MessageUtils.newChain(new At(e.getSender())).plus("一分钟内调用次数上限！"));
+                    return;
+                }
+                count++;
+                NewThread newThread = new NewThread();
+                newThread.boot(e,"0");
+            }
+            if ( inputString.equals("r18") || inputString.equals("不够色") || inputString.equals("不够涩")) {
                 if (count > 15) {
                     e.getGroup().sendMessage(MessageUtils.newChain(new At(e.getSender())).plus("一分钟内调用次数上限！"));
                     return;
